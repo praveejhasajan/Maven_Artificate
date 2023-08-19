@@ -37,7 +37,7 @@ public class CommonFunctions extends youtubeBasics{
 		}
 	}
 	public static void clickPlayButton() {
-	WebElement playButton = driver.findElement(By.xpath(Locators.PLAYBUTTON));  
+	WebElement playButton = driver.findElement(By.xpath(Locators.shortPLAYBUTTON));  
     // Click the "Play" button
     playButton.click();
 	}
@@ -133,10 +133,15 @@ public class CommonFunctions extends youtubeBasics{
 	public static String getText(String locator)
 	{
 		
-		String text = (driver.findElement(By.xpath(locator))).getAttribute("tittle");
+		String text = driver.findElement(By.xpath(locator)).getAttribute("tittle");
 		return text;
 	}
-	
+	public static String getTextXpath(String locator)
+	{
+		
+		String text = driver.findElement(By.xpath(locator)).getText();
+		return text;
+	}
 	
 	public static void browserManage()
 	{

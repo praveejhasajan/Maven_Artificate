@@ -1,5 +1,6 @@
 package com.blogger.locators;
 
+import java.awt.Dimension;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -30,10 +31,11 @@ public class youtubeBasics{
 		static WebDriver driver = driverInitialize();
 		public static void navigateUrl(String url)
 		{
-			
+			 driver = driverInitialize();
 			driver.navigate().to(url);
 			driver.manage().window().maximize();
 		}
+	
 		
 		public static void login() throws InterruptedException
 		{
@@ -42,15 +44,29 @@ public class youtubeBasics{
 		CommonFunctions.enterLogin(driver,Locators.LOGINPWDXPATH,Locators.LOGINPWD);
 		CommonFunctions.PressNext(driver,Locators.NEXTBUTTON);
 		}
-		
-		public static void playVideo() throws InterruptedException
+
+		public static void playshortVideo() throws InterruptedException
 		{
-			   WebElement playButton = driver.findElement(By.xpath("(//button[@aria-label='Play (k)'])[1]"));  
+			   WebElement playButton = driver.findElement(By.xpath(Locators.shortPLAYBUTTON));  
 		   // Click the "Play" button
 			    playButton.click();
 				System.out.println("foundPlayButton");
 				
 		}
+		public static void resize() {
+			 org.openqa.selenium.Dimension newSize = new  org.openqa.selenium.Dimension(300, 300); // Replace with your preferred dimensions
+		        driver.manage().window().setSize(newSize);
+		        
+		}
+		public static void playfullVideo() throws InterruptedException
+		{
+			   WebElement playButton = driver.findElement(By.xpath(Locators.VideoPLAYBUTTON));  
+		   // Click the "Play" button
+			    playButton.click();
+				System.out.println("foundPlayButton");
+				
+		}
+		
 		public static void readFile() {
 	        // specify the file path
 			   String filePath = "D:\\eclipseWS\\BlogPostSelenium\\maven_artificat\\tagList.txt";
@@ -64,6 +80,21 @@ public class youtubeBasics{
 		            System.out.println("Error reading file: " + e.getMessage());
 		        }
 	    }
+		public static long getDuration(String loc)
+		{
+			int Min,sec;
+			String Timeduration = CommonFunctions.getTextXpath(loc);
+			String Part[]=Timeduration.split(":");
+		
+				 Min= Integer.parseInt(Part[0]);
+				 sec= Integer.parseInt(Part[2]);
+				
+			
+			long miliseconds = (Min*60L+sec)*1000;
+			
+			return miliseconds;
+		}
+		
 		public static void closeBrowser()
 		{
 		driver.close();

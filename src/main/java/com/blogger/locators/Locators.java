@@ -6,7 +6,10 @@ public class Locators {
 	public static final String XPATH_SIGNIN = "//a[@class='sign-in ga-header-sign-in']";
 	public static final String TRENDS = "//div[@class='subtitles-text-wrapper visible']//a";
 	//public static final String XPATH_SIGNIN = "//a[@class='sign-in ga-header-sign-in']";
-	public static final String PLAYBUTTON = "(//button[@aria-label='Play (k)'])[1]";
+	public static final String shortPLAYBUTTON = "(//button[@aria-label='Play (k)'])[1]";
+	public static final String VideoPLAYBUTTON = "//button[@class='ytp-large-play-button ytp-button']";
+	public static final String duration = "//span[@class='ytp-time-duration']";
+
 	public static final String PLAYERID = "container";
 	
 	public static final String LOGINURL ="https://accounts.google.com/signin/v2/identifier?service=youtube&uilel=3&passive=true&continue=https%3A%2F%2Fwww.youtube.com%2Fsignin%3Faction_handle_signin%3Dtrue%26app%3Ddesktop%26hl%3Den%26next%3D%252F&hl=en&ec=65620&flowName=GlifWebSignIn&flowEntry=ServiceLogin";

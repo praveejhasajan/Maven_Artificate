@@ -19,7 +19,7 @@ public static WebDriver driver;
 		navigateUrl(url);
 		Thread.sleep(3000);
 		System.out.println("Youtube Playing");
-		playVideo();
+		playshortVideo();
 		Thread.sleep(23000);
 		
 		

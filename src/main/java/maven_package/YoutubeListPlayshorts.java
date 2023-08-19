@@ -3,13 +3,11 @@ package maven_package;
 import java.util.Arrays;
 import java.util.List;
 import org.openqa.selenium.WebDriver;
-
-import com.blogger.locators.Locators;
 import com.blogger.locators.youtubeBasics;
 
 
 
-public class YoutubeListPlay extends youtubeBasics{
+public class YoutubeListPlayshorts extends youtubeBasics{
 
 public static WebDriver driver;
 
@@ -23,26 +21,30 @@ public static WebDriver driver;
 	"https://www.youtube.com/watch?v=Et748xIuY6E"// A day in my life 
 );
 	public static void main(String[] args) throws InterruptedException
-	{		
+	{
+		
+		int flag = 0;				
 	
 	for(int i = 0;i<500;i++)
-	{	
+	{	Thread.sleep(1000);
 	
 		for(String url : urlList)	
 		{
 		navigateUrl(url);
-		Thread.sleep(2000);
+	
 		System.out.println("Youtube Playing");
-	
-	
-		playfullVideo();
+		if(flag<1)
+		{
+		playshortVideo();
+		}
 		
-		resize();
-	//	long milsec = getDuration(Locators.duration);
-	//	System.out.println(+milsec);
-	
-		Thread.sleep(480000);
-		}}
+		flag++;
+		Thread.sleep(350000);
+		}
+		
+	}	
+
+	closeBrowser();
 	}
-	}
 	
+}
